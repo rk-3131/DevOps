@@ -1,0 +1,74 @@
+git init
+<It is used to initialize the empty git repo in the file system.
+
+git status
+<This is used to keep track of the files that have been created and not added it will tell us names of untracked files in the directory>
+
+git add . 
+git add -A
+<We can add all the files for the staging area i.e their progress will be stored in the local file in the machine>
+
+git add filename
+<Individual file can be added for progress detection>
+
+git restore --staged fileName
+<Suppose we want to take back file added to the staging area back then at that point we will be taking it back using above command>
+
+git commit -m"message here"
+<All the changed made will be visible to world and hence they can be seen by world>
+
+git log
+<This will give us all the history of commit that we have made previously>
+
+if we want project at any given stage then
+copy hashcode of that commit
+
+git reset <hashcode>
+
+it will be restored and hence other will be in the unstaged area
+
+git stash
+<Project files will be in the backstage and everything will be reverted>
+
+git pop
+<All the files in the backstage will be again take forward>
+
+git stash clear
+<All the files in the background will be deleted>
+
+branch 
+<Default name of the branch is main>
+if we want to add new features then we should create separate branch
+we should never commit on the main branch
+hence we should change the branch and modify
+
+git branch nameOfBranch
+<create the new branch with nameOfBranch>
+
+git checkout nameOfBranch
+<Go to the branch of the name>
+
+to merge the code in the main branch
+
+git checkout main
+git merge nameOfBranch
+<Here we will have nameOfBranch merged into the main branch>
+
+
+wokring with existing project
+
+We have to send pull request to the existing code
+
+first fork the project into our profile
+we can do anything with it
+
+
+git clone url
+it will download all the project in the local system from our own system
+
+we can add upstream url
+git add upstream <link>
+link of projects will be added in the file
+
+
+
