@@ -1,0 +1,68 @@
+myself: "RK"
+name: my name is rk
+# bio: hey my name is rk.
+# I am very nice dude.
+# Above commented part will give us error as this is not correct representation of the string
+
+bio: |
+hey my name is rk.
+I am very nice dude.
+# now above lines will be written and saved as they are 
+# | this symbol is used to preserve white spaces and indentation 
+
+# what if we want to write single line in multiple line
+message: >
+this will 
+all be
+in one single line 
+and can be treated as 
+single line
+
+# hence all the above stuff will be in single line
+
+# how to declare data types
+
+number: 25
+marks: 100
+bool_value: Yes
+
+# yaml detects what type of data is there just by seeing value
+# but if we want to determine the data type explicitely then it can be done like
+
+number: 25
+marks: 99.99
+bool_value: Yes #y, Y, true, True, TRUE same for true also
+zero_va: !!int 0;
+pos_val: !!int 45
+neg_val: !!int -12
+bin_val: !!int 0b11001
+octal_val: !!int 06547
+hexaDec_val: !!int 0x45
+comma_val: !!int +540_000 #540,000 this is specified as back of line
+expo_val: 6.023E56  #used to exponential numbers 
+# thsese are all methods which are used to explicitely determine data type of numerical data values
+
+
+# floating pt numbers
+number: !!float 56.89 # float value of value 56.89
+inf_val: !!float .inf # float value of infinity
+not a num : .nan
+
+# boolean
+bool_val: !!bool No 
+
+# String
+str_val: !!str "This is string"
+
+# null values
+surname: !!null Null #null or NULL ~
+
+# null key
+~: This is null key
+
+# dates and time
+# if no timezone is added then it assumes UTC timezone
+# import from website
+
+
+

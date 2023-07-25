@@ -1,0 +1,35 @@
+# first it used to be called as 'Yet another markup language'
+
+# but now it is called as YAML ain't markup language
+# as it is just a data format which is used to exchange data
+# simillar to xml and json
+# in yaml only data can be stored and command cannot be stored in yaml
+
+# data serialization: 
+  # it is a process where object are converted into byte stream
+  # this is done so that this byte stream can be shared with many applications like android,  web and many more.
+  # serialization is only used for transportation of data and not to use in the applications
+  # after serialization it can be stored in memory, database or in yaml file
+  # hence serialization is converting objects into stram of bytes and can be transported into many files
+  # yam;, json and xml are called as serialization language
+  # to use that data again in the application data is again de-serialized
+
+  # object -> stream serialization
+  # stream -> objects de-serialization
+
+# uses of yaml
+  # configuration file of Docker and kubernates
+  # logs and cache
+
+# benefits of yaml
+  # easy to read
+  # simple
+  # strict syntax
+  # indentation is imp
+  # easily convertable
+  # most language uses yaml
+  # more powerful when representing complex data
+  # various tools like parser can be used
+  
+
+

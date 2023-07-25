@@ -1,0 +1,39 @@
+# extension can be yaml or yml
+
+king: "Virat is called as king"
+# this is first format of yaml files where values are stored in the form of key and value pair
+
+my_name: "People call me RK"
+# this is not a actual hashmap we can use this information and then can convert it into hashmaps
+---
+# above syntax is used to seprate differnt documents in the single file
+# lists
+- apple
+- mango
+- banana
+- cherry
+
+# above format is used to save the list of certain members in the yaml
+# and also yaml is case sensitive
+---
+cities:
+ - mumbai
+ - new delhi
+ - pune
+ - nagar
+
+cities: [mumbai, new delhi, pune, nagar]
+# list can be defined as suggested in the above documents
+# here we have created blockstyle
+# cities is a key and we have assigned value of lists to it
+
+{mango: "Yellow Fruit", age:20}
+
+# map can be defined as above syntax
+
+
+
+
+
+# ... is used to tell that document is ended here
+...

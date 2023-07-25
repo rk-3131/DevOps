@@ -1,0 +1,117 @@
+# list
+
+student: !!seq
+ -marks
+ -name
+ -roll_no
+
+cities: [mumbai, pune, nagpur];
+# seq is used to explicitely tell that following is data type which is used to store the value in array format
+
+# sometimes some element of sequence can be empty this is called as sparse sequence
+
+sparse seq:
+ - hey
+ - hi
+ - 
+ - now
+ - nice
+# map can also be stated as
+name: Kunal Kushwaha
+roll :{age: 20, job : student}
+# nested sequences and nested map
+
+fruits:
+ -mango:
+  color : yellow
+  taste : good
+  anything else : nothing
+ -apple:
+  color : red
+  taste : better
+  anything else : no
+
+# keys may have duplicate values
+# pair example:
+#  -job : student
+#  - job : teacher
+# above codes shows error
+
+pair example : !!pairs [job: student, job: teacher]
+# this works and hence can be given same output to the given key
+
+# set will allow us to have unique values 
+names : !!set
+ ? kunal
+ ? rk
+ ? harry
+ ? babbar
+
+
+#  dictionary i.e omap can be used to have many numbers 
+
+fruits: !!omap 
+ -mango:
+  color : yellow
+  taste : good
+  anything else : nothing
+ -apple:
+  color : red
+  taste : better
+  anything else : no
+
+
+# reusing the values here anchor are used
+# they refer to as what you want to copy and where
+
+likings: &likes
+ fav fruits : cherry
+ dislikes : Grapes
+
+name1:
+ name: name1
+ <<: *likes
+
+# hence all the values from likes anchor will be copied here
+
+name2:
+ name: name2
+ <<: *likes
+ dislikes: berries
+
+# Above syntax can be used to overwrite the synax
+
+School:
+ name: name of school
+ Principal: Name of him
+ Students:
+  -student1:
+   rno : 1
+   name: s1
+   marks: 100
+  -student2:
+   rno : 2
+   name : s2
+   marks : 99
+
+# this is represented to have a complete structure of the data provided as input
+# its json representation will be
+
+# {
+#   "School": {
+#     "name": "name of school",
+#     "Principal": "Name of him",
+#     "Students": {
+#       "-student1": {
+#         "rno": 1,
+#         "name": "s1",
+#         "marks": 100
+#       },
+#       "-student2": {
+#         "rno": 2,
+#         "name": "s2",
+#         "marks": 99
+#       }
+#     }
+#   }
+# }
