@@ -1,0 +1,225 @@
+Applications of the companies are running on the server
+initially one application used to run on one server
+
+now if load on the application is increased 
+
+initially they didn't had the way to run multiple application on single server.
+
+Hence everytime server had to buy for each application
+
+VMware company solved this problem by using virtual machine
+
+Virtual Machine : It solved problem mentioned earlier
+multiple application can run on server 
+but vm needed their own OS
+it was not that perfect
+
+This is where docker comes into play
+company started thinking that there will be a isolation but there will be sharing of resources 
+
+this is solved by containers
+Containers were available earlier but they were not popular
+
+Container is like something where we can combine all the stuff needed to run the environment and then it will be transported
+
+Using container engine we can run application in single OS
+
+But in VM there are different OS
+
+Containers run on VM
+
+Linux containers are which were first very popular
+
+Docker is a company and they made easy to use container for other users
+
+Docker is a tool , company used to make us able to use container
+
+Container can run on windows and MAC even it is based on Linux
+
+But but if windows app is containerized then it will never run on Linux based docker
+
+for windows use docker desktop and WSL
+
+We know docker makes us helpful to use in separate environment
+
+It has some parts:
+1. Docker Runtime : It allows us to start and stop container.
+It is of two types a) low level (runc)
+it works with os and start and stop container
+b) container d: manages runc how container will interract with network is controlled by container d 
+2. Docker engine : We use to interact with container
+like docker daemon : there are rest API provided we can use cli and then can interract with container
+CLI is at outer layer then there is layer of rest API and there is anothe r layer of daemon or server. Commands to the container comes from CLI to the daemon
+
+
+Orchestation: let our application is working in many container to update and all as well as to automating some as new and some as old is where orchastation is used.
+
+Docker image: There is an application running in the container of the dish, right. We as a developer tend to share our work with other folks in the world. But the running application cannot be shared with others hence there can be one thing that we can share the instruction of how to run our application along with the source code of the app. This procedure and source code is what a docker image is called of.
+
+Hence image is all instruction and all and container is running instance of the applications
+
+We will use git bash
+enter the command docker run hello-world
+
+run : run an image to create a container 
+hello-world is name of the image
+
+if it is not present on the local computer 
+hence then it will download it from the server
+it will then run that image
+
+I can also write it a way like
+docker run -it ubantu
+here it will run the docker file in the ubantu environment
+I will get a message as ubantu is not present in my system
+
+to get the list of all image in my local system I have command
+docker images
+it will give me the list of images
+
+hence to use the image I have to download it on the device and hence it can be used in the later session in very less time
+
+i.e now if I enter docker run hello-world again it will give the output in very less time as it has been downloaded on my system
+
+when we enter the command in the bash that I have to run a file
+then CLI will get to daemon and ask if daemon has that image or not
+If daemon has that image then docker will then give it to CLI 
+otherwise it will check for directory of image library on the docker library
+
+The docker image has OS files and also dependencies for the image
+
+docker pull image-name
+it will download image-name in the local system
+if we don't want latest version then 
+docker pull ubantu:16.04
+:version is version number
+
+for latest I don't have to specify version
+
+docker run -it ubantu
+it will run in the background
+Then I will be in the ubantu
+
+docker ps
+this will give me list of images running
+
+
+docker container ls
+it will also show me all the container
+
+docker stop id_here
+this will stop the id here
+
+docker ps -a
+all the containers which are stopped
+
+docker rm id
+it will be removed
+
+docker inspect name/id
+it will give all the infn abt container
+
+docker logs id
+it will give all the inf about container
+
+docker prune -f 
+deletes all the container all the ones which are stopped
+
+docker run alpine ping www.civo.com
+container running for long time in the background
+
+docker run -d alpine ping www.civo.com
+-d tells that detatched mode
+it will run in the background and only id will be returned
+
+docker run ubantu echo hey
+it will give us output hey
+first execute command and then it will echo the sentence
+
+docker logs since --since 5s first_four_of_id
+it will give me activity in last  5sec
+
+docker stop first_four_of_id
+it will stop that one
+
+docker rm first_four_of_id
+it will remove that image as it has stopped in the prev command
+
+docker run -d -p 8080:80 nginx
+it will run it on the port 8080:80 explicitely
+here second one is the port of the nginx
+i.e inside the container it is listening on the port number 80 but outside it really doesn't care
+8080 is for the localhost
+
+i.e localhost 8080 are transferred to 80
+
+
+docker logs first_four_of_id will give all the log
+
+
+now I might change in the container
+I want to share it to someone
+we can use commit message for it
+
+(docker start id) 
+docker exec -it id bash
+it will have that id in interractive in bash
+
+now as we want to share it right
+
+docker commit -m "Message" container_id image_name:version
+
+this image will be created
+
+now to open the commit that we have done in the earlier session we can use following command
+
+docker run -it image_name:version
+
+docker images -q
+it will give us id of the all images
+
+docker rmi $(docker images -q) -f
+all the images will be deleted
+
+Images are built in layers
+i.e they are made up of differnt files
+it is just to reduce the redundancy that might be created due to addition of large number of files which might be same in many files
+
+this is why there are number of layers in the image that we are adding
+
+Now we will be learning how to create our own docker file
+
+
+MAINTAINER radhakrushna mahadik <mahdikrs512@gmail.com>
+RUN apt-get update
+
+
+After creating the docker image we can upload it on the docker account
+You have to login and then those credentials can be used in the docker to upload image of the stuff
+
+docker login
+
+docker build .
+here current directory's file will be available to upload
+
+docker build -t myimage .
+this will upload my image on the server
+
+curly double quotes don't work
+normal one do
+
+
+CLI -> Daemon -> containerd ->shim(many) ->runc for each
+
+if daemon is stopped then all the container will be stopped 
+this is where run c and shim comes into play
+runc is used to start the container only
+then shim takes over
+
+
+
+
+
+
+
+
